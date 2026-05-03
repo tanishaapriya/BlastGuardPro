@@ -1,188 +1,133 @@
-# BlastGuard Pro
+# 🏗️ BlastGuard Pro
+### **Blast-Induced Slope Failure (BISF) Prediction & Monitoring Platform**
 
-**Blast-Induced Slope Failure (BISF) Prediction & Monitoring Platform**
+[![React](https://img.shields.io/badge/Frontend-React%2018-blue?style=flat-square&logo=react)](https://reactjs.org/)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn)](https://scikit-learn.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20CSS-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 
-A professional full-stack geotechnical engineering tool for mining engineers, geotechnical analysts, and site safety officers. Combines React frontend with a Python ML backend to deliver real-time blast risk predictions with live SVG visualizations.
-
----
-
-## Tech Stack
-
-| Layer    | Technology                                                |
-|----------|-----------------------------------------------------------|
-| Frontend | React 18, Vite, Tailwind CSS, Framer Motion, Recharts     |
-| Forms    | React Hook Form + Zod validation                         |
-| State    | React Context API (Auth, Theme, Notifications)            |
-| API      | Axios / Fetch, fallback formula engine when offline       |
-| Backend  | FastAPI (Python), Uvicorn, scikit-learn, joblib, numpy    |
+**BlastGuard Pro** is a professional-grade full-stack geotechnical engineering solution designed for mining engineers, geotechnical analysts, and site safety officers. It bridges the gap between complex blast design and site safety by delivering real-time risk predictions and live visual simulations.
 
 ---
 
-## Quick Start
+## 🚀 Core Value Proposition
 
-### Frontend
+- **Predictive Intelligence**: Leverage Machine Learning to forecast Blast-Induced Slope Failure (BISF) risks before the first hole is drilled.
+- **Live Visual Simulations**: Interactive SVG visualizers for blast holes and slope geometry that update in real-time as parameters change.
+- **Offline Resilience**: Built-in geotechnical formula engine that automatically takes over if the ML backend is unavailable.
+- **Enterprise-Ready**: Role-based access control, comprehensive audit logs, and professional reporting templates.
 
+---
+
+## 🛠️ Technology Stack
+
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend** | React 18, Vite, Tailwind CSS, Framer Motion, Recharts |
+| **Forms & Validation** | React Hook Form, Zod |
+| **State Management** | React Context API (Auth, Theme, Notifications) |
+| **Data Visualization** | Custom SVG Engines, Recharts (Analytics) |
+| **Backend** | Python 3.9+, FastAPI, Uvicorn |
+| **Machine Learning** | Scikit-Learn, Joblib, NumPy, Pandas |
+
+---
+
+## ✨ Key Features
+
+### 📊 Intelligent Dashboard
+A high-level command center featuring:
+- **KPI Cards**: Instant view of site safety metrics.
+- **Dynamic Charts**: 4 real-time charts tracking risk trends and blast performance.
+- **Activity Feed**: Live log of site assessments and predictions.
+- **Site Status Map**: Interactive visualization of multiple mining sites.
+
+### 🧙‍♂️ 5-Step Prediction Wizard
+A streamlined workflow for complex geotechnical assessments:
+1. **Geometric Input**: Define burden, spacing, and hole parameters.
+2. **Blast Parameters**: Configure charge weight, delays, and specific charge.
+3. **Slope Details**: Input slope angle, height, and orientation.
+4. **Rock Mass Data**: Define RMR, RQD, and joint characteristics.
+5. **Real-time Preview**: See your design update live in the SVG visualizer.
+
+### 🎨 Live Visualizers
+- **BlastHoleVisualizer**: Detailed SVG cross-section showing stemming, charge zones, and scatter patterns. Animates energy waves based on predicted risk.
+- **SlopeCrossSectionVisualizer**: Structural geometry that reacts to rock type and groundwater levels, showing failure planes for high-risk scenarios.
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Prerequisites
+- Node.js 18+
+- Python 3.9+
+- Git
+
+### 2. Frontend Setup
 ```bash
 cd frontend
 npm install
 npm run dev
-# App runs at http://localhost:5173
+# Dashboard available at http://localhost:5173
 ```
 
-### Backend
-
+### 3. Backend Setup
 ```bash
 cd backend
 pip install -r requirements.txt
-# Optionally place your .pkl model files in backend/models/
+# Start the FastAPI server
 uvicorn main:app --reload --port 8000
-# API runs at http://localhost:8000
-# /health endpoint confirms model status
-```
-
-The backend auto-detects `.pkl` model files. If not found, it uses built-in formula-based predictions — the app works fully offline.
-
----
-
-## Demo Credentials
-
-| Role               | Email                       | Password    |
-|--------------------|-----------------------------|-------------|
-| Admin              | admin@blastguard.com        | admin123    |
-| Mining Engineer    | engineer@blastguard.com     | eng123      |
-| Geotechnical Analyst | analyst@blastguard.com    | analyst123  |
-
----
-
-## Features
-
-### Core Pages
-
-| Page              | Path           | Description                                         |
-|-------------------|----------------|-----------------------------------------------------|
-| Dashboard         | `/dashboard`   | KPI cards, 4 charts, activity feed, site status map |
-| New Prediction    | `/predict`     | 5-step wizard with live SVG blast visualizer        |
-| Prediction History| `/history`     | Searchable/filterable table with detail modal        |
-| Site Management   | `/sites`       | Grid cards + CRUD + detail page with tabs            |
-| Risk Assessment   | `/risk`        | Interactive 5×5 risk matrix + register               |
-| Reports & Export  | `/reports`     | Templates, generate modal, scheduled reports         |
-| Blast Parameters  | `/parameters`  | Library of saved configurations                      |
-| Analytics         | `/analytics`   | 6 chart types, date range presets                    |
-| Alerts            | `/alerts`      | Tabbed notifications + threshold settings            |
-| Admin Panel       | `/admin`       | User management, audit logs, API keys, settings      |
-| Settings          | `/settings`    | Profile, security, notifications, preferences        |
-
-### Visualizers
-
-- **BlastHoleVisualizer** — SVG cross-section that updates live as parameters change. Zones (stemming, charge, energy core, scatter) are driven by model output. Energy waves animate at speeds controlled by risk level.
-- **SlopeCrossSectionVisualizer** — SVG slope geometry that reacts to slope angle, height, rock type, and groundwater. Shows failure plane when risk is High/Critical.
-
-### Keyboard Shortcuts
-
-| Shortcut   | Action           |
-|------------|------------------|
-| Ctrl+N     | New Prediction   |
-| Ctrl+H     | Prediction History |
-| Ctrl+D     | Dashboard        |
-| Esc        | Close modal      |
-
----
-
-## API
-
-### POST `/api/predict`
-
-**Request body:**
-```json
-{
-  "burden": 2.5, "spacing": 3.0, "hole_depth": 8.0,
-  "hole_diameter": 115, "stemming_length": 1.8,
-  "total_charge": 45, "max_charge_delay": 25,
-  "specific_charge": 0.45, "slope_height": 15,
-  "slope_angle": 55, "number_of_rows": 3, "rmr": 60,
-  "rqd": 70, "rock_type": "Granite", "groundwater": "Dry",
-  "joint_orientation": 45, "joint_spacing": 300,
-  "distance_to_structure": 200, "distance_to_slope_crest": 50
-}
-```
-
-**Response:**
-```json
-{
-  "risk_level": "High",
-  "bisf_score": 67.4,
-  "ppv": 12.4,
-  "air_overpressure": 117.8,
-  "probability": 0.674,
-  "confidence": 0.72,
-  "fragmentation_index": 0.583,
-  "failure_mode": "Planar",
-  "energy_distribution": { "high_energy_core": 0.45, ... },
-  "recommendations": ["..."]
-}
-```
-
-### GET `/health`
-
-Returns `{ "status": "ok", "models_loaded": true/false, "mode": "ML"/"formula" }`
-
----
-
-## ML Model Integration
-
-Place your trained `.pkl` files in `backend/models/`:
-
-```
-backend/models/
-├── bisf_classifier.pkl        # Main risk classifier (predicts bisf_score)
-├── ppv_regressor.pkl          # PPV regression model
-└── fragmentation_model.pkl    # Fragmentation index regressor
-```
-
-**Feature vector order** (19 features):
-
-```
-burden, spacing, hole_depth, hole_diameter, stemming_length,
-total_charge, max_charge_delay, specific_charge, slope_height,
-slope_angle, number_of_rows, rmr, rqd, joint_orientation,
-joint_spacing, distance_to_structure, distance_to_slope_crest,
-rock_type (int), groundwater (int)
+# API documentation available at http://localhost:8000/docs
 ```
 
 ---
 
-## Deployment
+## 🧠 ML Model Integration
 
-**Frontend → Vercel:**
-```bash
-# Set environment variable in Vercel dashboard:
-VITE_API_URL=https://your-python-backend.railway.app
-```
+The platform is designed to be model-agnostic. Place your trained `.pkl` files in `backend/models/`:
 
-**Backend → Railway.app or Render.com:**
-```bash
-# Start command:
-uvicorn main:app --host 0.0.0.0 --port $PORT
-```
+- `bisf_classifier.pkl`: Main risk classifier (predicts `bisf_score`).
+- `ppv_regressor.pkl`: Predicts Peak Particle Velocity.
+- `fragmentation_model.pkl`: Calculates fragmentation index.
+
+**Feature Input Order (19 features):**
+`burden, spacing, hole_depth, hole_diameter, stemming_length, total_charge, max_charge_delay, specific_charge, slope_height, slope_angle, number_of_rows, rmr, rqd, joint_orientation, joint_spacing, distance_to_structure, distance_to_slope_crest, rock_type (encoded), groundwater (encoded)`
 
 ---
 
-## Project Structure
+## 🔒 Security & Access
 
-```
+| Role | Permissions |
+| :--- | :--- |
+| **Admin** | Full system control, user management, API key rotation. |
+| **Mining Engineer** | Full prediction workflow, site management. |
+| **Geotechnical Analyst** | History analysis, report generation, analytics. |
+
+**Default Admin Credentials:** `admin@blastguard.com` / `admin123`
+
+---
+
+## 🏗️ Project Structure
+
+```text
 blastguard-pro/
-├── frontend/src/
-│   ├── components/
-│   │   ├── layout/     (Sidebar, Header, Layout, Breadcrumbs)
-│   │   ├── ui/         (Button, Card, Badge, Modal, Gauge, ...)
-│   │   └── visualizer/ (BlastHoleVisualizer, SlopeCrossSectionVisualizer)
-│   ├── pages/          (11 pages + 4 auth pages)
-│   ├── context/        (AuthContext, ThemeContext, NotificationContext)
-│   ├── hooks/          (useLocalStorage, usePrediction)
-│   ├── services/       (predictionAPI.js with fallback)
-│   └── utils/          (constants, mockData, validators, formatters)
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── layout/     # Navigation and Shell
+│   │   │   ├── ui/         # Reusable Atomic Components
+│   │   │   └── visualizer/ # Custom SVG Engines
+│   │   ├── pages/          # 11+ Feature Pages
+│   │   └── services/       # API Integration with Fallback Logic
 └── backend/
-    ├── main.py         (FastAPI app with ML + formula fallback)
-    ├── models/         (place .pkl files here)
-    └── requirements.txt
+    ├── main.py             # FastAPI Entry Point
+    ├── models/             # ML Model Storage
+    └── requirements.txt    # Python Dependencies
 ```
+
+---
+
+## 📄 License & Credits
+
+Developed for geotechnical safety and mining optimization.
+
+*Designed with ❤️ for the Geotechnical Engineering Community.*
