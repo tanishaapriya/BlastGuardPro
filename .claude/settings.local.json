@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(npm create *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(powershell -Command ' *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(pkill -f \"node.*vite\")"
+    ]
+  }
+}
