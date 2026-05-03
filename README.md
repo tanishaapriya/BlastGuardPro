@@ -106,6 +106,46 @@ The platform is designed to be model-agnostic. Place your trained `.pkl` files i
 
 ---
 
+## 🔄 System Architecture
+
+```mermaid
+graph TD
+    User((User))
+    
+    subgraph Frontend [React Application]
+        UI[Tailwind & Framer Motion UI]
+        State[Context API & Hooks]
+        Visualizer[SVG Visualizer Engines]
+        API_Client[Axios Client with Fallback]
+    end
+    
+    subgraph Backend [FastAPI Service]
+        FastAPI[FastAPI Router]
+        ML_Engine[Scikit-Learn Inference]
+        Formula_Engine[Geotechnical Logic]
+    end
+    
+    subgraph Storage [Local Storage / Models]
+        PKL[Saved .pkl Models]
+        JSON[History & Configs]
+    end
+
+    User --> UI
+    UI --> State
+    UI --> Visualizer
+    State --> API_Client
+    
+    API_Client --> FastAPI
+    API_Client -- Offline Fallback --> Formula_Engine
+    
+    FastAPI --> ML_Engine
+    ML_Engine --> PKL
+    FastAPI --> Formula_Engine
+    Formula_Engine --> JSON
+```
+
+---
+
 ## 🏗️ Project Structure
 
 ```text
@@ -128,6 +168,6 @@ blastguard-pro/
 
 ## 📄 License & Credits
 
-Developed for geotechnical safety and mining optimization.
+**Developed with ❤️ by Tanishaa Priya**
 
-*Designed with ❤️ for the Geotechnical Engineering Community.*
+*Designed for the Geotechnical Engineering Community.*
