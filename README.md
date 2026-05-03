@@ -6,7 +6,25 @@
 [![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-F7931E?style=flat-square&logo=scikit-learn)](https://scikit-learn.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20CSS-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 
-**BlastGuard Pro** is a professional-grade full-stack geotechnical engineering solution designed for mining engineers, geotechnical analysts, and site safety officers. It bridges the gap between complex blast design and site safety by delivering real-time risk predictions and live visual simulations.
+---
+
+## 🌐 Live Demo
+**[Live Link Coming Soon]**  
+*Currently available for local deployment only.*
+
+---
+
+## 📸 Local Preview
+
+### Login & Authentication
+![Login Screen](./screenshots/login.png)
+
+### Risk Assessment Dashboard
+![Dashboard](./screenshots/dashboard.png)
+
+### Prediction Wizard & Analytics
+![Prediction Wizard](./screenshots/predict.png)
+![Analytics](./screenshots/risk.png)
 
 ---
 
