@@ -8,6 +8,20 @@
 
 ---
 
+## 📖 About the Project
+
+**BlastGuard Pro** is an advanced AI-driven platform designed to tackle one of the most critical challenges in open-pit mining: **Blast-Induced Slope Failure (BISF)**. 
+
+Slope failure in mining environments can lead to catastrophic safety risks and massive economic losses. By integrating real-time geotechnical data with machine learning algorithms, this platform allows engineers to:
+- **Analyze** complex rock mass properties and blast designs simultaneously.
+- **Predict** the probability of slope instability before any detonation occurs.
+- **Visualize** the structural response of the rock through high-fidelity SVG simulations.
+- **Optimize** blast parameters (burden, spacing, charge weights) to maintain slope integrity while achieving desired fragmentation.
+
+This tool is built to provide actionable insights where traditional formulas often fall short, enabling a "Safety-First" approach to high-energy mining operations.
+
+---
+
 ## 🌐 Live Demo
 **[Live Link Coming Soon]**  
 *Currently available for local deployment only.*
