@@ -24,7 +24,6 @@
 
 ### Prediction Wizard & Analytics
 ![Prediction Wizard](./screenshots/predict.png)
-![Analytics](./screenshots/risk.png)
 
 ---
 
